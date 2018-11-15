@@ -21,7 +21,7 @@ The Gradient Structural Concavity algorithm is a type of Feature Engineering alg
 ### Linear Regression Model
 Linear Regression is one of the most used algorithms for prediction analysis. Linear regression can be described as a machine learning algorithm that is used to predict the value of the dependent variable Y, given enough amount of information about the independent variable X. More generally it uses the equation of the line to map values such that
 
-                                  Y =W * X
+                                                Y =W * X
                                   
 Here Y is the dependent variable, X is the independent variable and W corresponds to the weights 73 of the independent variables.
 
@@ -29,10 +29,10 @@ Here Y is the dependent variable, X is the independent variable and W correspond
 Logistic Regression is a classification algorithm that can be used to assign labels to data belonging discrete categories. Unlike linear regression which is a type of linear problem as try to divide a collection of continuous values using equations, logistic regression can be used to classify elements of a dataset using the logistic sigmoid function [3].
 For example, if linear regression helps to predict the score of a baseball match, logistic regression can be used to help us predict whether our team will win the match or not.
 
-                                  Y = σ (W * X)
+                                               Y = σ (W * X)
 Here, Y is the dependent variable, X is the independent variable and W corresponds to the weights of the independent variables. The Sigmoid activation (σ) works like an activation function. The function maps the input data and provides the output value between 0 and 1. It can be represented using the following equation;
 
-                                  σ = 1 / 1 + e−Z
+                                              σ = 1 / 1 + e−Z
 Here, Z is the input provided to the function.
 
 ### Neural Network Model
@@ -43,8 +43,8 @@ Now let's try to understand some key points of a simple neural network using the
 
 In the figure above, the X1, X2 & X3 together comprise the input layer. Similarly, H1 & H2 are the neurons in the hidden layer & finally, O3 is the output layer. Moreover, W1 to W8 are all the weights assigned to each edge of the Neural Network such that 
 
-                                Output O = 1 / (1 + ℯ-F)
-                              Here F = W1*X1 + W2*X2 + W3*X3
+                                              Output O = 1 / (1 + ℯ-F)
+                                           Here F = W1*X1 + W2*X2 + W3*X3
 ## Algorithms & Equations used
 The CEDAR Letter dataset consists of a Human Observed dataset of 9 features and a GSC dataset of 512 features that describe each handwritten ‘AND’ word. But the problem is that even though these features are very helpful, they are not in a formal order and are basically too many to be mapped using a Machine Learning model. Hence we first need to generate a dataset of valid inputs using two techniques, namely concatenation and subtraction. Then we need to reduce them to a potential number that can be used as an input to our model. This can be done using clustering & basis functions. Hence, let us first understand these concepts;
 
@@ -63,7 +63,7 @@ In this specific problem, we are using the data which is in the form of search q
 Radial Basis Function is a function that can be used to describe an element of the particular basis for a function space. Generally, Basis functions are used to represent the relationship between multiple non-linear inputs and target values in a dataset.
 In this project, we are going to use Gaussian Radial Basis Functions. It calculates the radial basis functions using the following formula:
 
-                      Φj(x) = exp (−0.5 * (x – μj)T * ∑j-1 * (x – μj))
+                                   Φj(x) = exp (−0.5 * (x – μj)T * ∑j-1 * (x – μj))
 Where μj is the centroid obtained for the Basis function and ∑j-1 is the covariance matrix.
 
 ### Gradient Descent
@@ -81,7 +81,7 @@ One of the most used variations of gradient descent algorithm is the Stochastic 
 Now that we understand the concept of Concatenation, Subtraction, K-means Clustering, Radial Basis Functions & Gradient Descent, we can look into the three major approaches of Machine Learning to implement handwriting recognition on the CEDAR Letter Dataset.
 We have used the Error Function of Linear Regression Algorithm to calculate the Erms values as follows:
 
-                                ED(W) = ∑n=1…N {tn|wT * Φ(xn)}2
+                                           ED(W) = ∑n=1…N {tn|wT * Φ(xn)}2
 Here ED is the change in error in the output.
 
 ### For Human Observed Dataset
@@ -90,27 +90,62 @@ The Human Observed Dataset can represent a sample using 9 features and hence we 
 * Root Mean Square error (RMS): This parameter can be defined as the square root of the differences between the actual output and the expected output, which is wholly divided by the number of outputs.
 The values of the RMS after we varied the Hyper-Parameter values are as shown in the graph below:
 
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/LRC.png" alt="Image" width="300" height="300" />
+</p>
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/LRS.png" alt="Image" width="300" height="300" />
+</p>
+
 ### For GSC Dataset
 The GSC Dataset uses Feature Engineering to extract 512 valid features from the Handwriting samples. As we cannot input all the features at once, we need to use radial basis functions to reduce the nonlinearity of the dataset. 
 Now we can use the dataset generated by the concatenation method (1024 features) or the dataset generated using the subtraction method (512 features) with reduced dimensionality as an input to the Machine Learning algorithm. In both the approaches, we try to reduce the error by varying the Hyper Parameters. Here we are evaluating the performance of the Linear Regression Model based on the following parameter;
 * Root Mean Square error (RMS): This parameter can be defined as the square root of the differences between the actual output and the expected output, which is wholly divided by the number of outputs.
 The values of the RMS after we varied the Hyper-Parameter values are as shown in the graph below:
 
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/LRGSCC.png" alt="Image" width="300" height="300" />
+</p>
+
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/LRGSCS.png" alt="Image" width="300" height="300" />
+</p>
+
 ## Implementation using Logistic Regression
 In order to classify the problem into 1 or 0, we have implemented Logistic Regression on the CEDAR Dataset using both the Concatenation and Subtraction methods. In order to calculate the error between the output of the model and the desired output, we have used following Error Function in Logistic Regression:
 
-                      J(θ) = ∑i=1…m [yi * log(hθ(xi))+(1-yi) * log(1-hθ(xi))]
+                                 J(θ) = ∑i=1…m [yi * log(hθ(xi))+(1-yi) * log(1-hθ(xi))]
 Here J(θ) is the Error Function, yi is the output variable and xi is the input variable for the Error Function.
 Here we are evaluating the performance of the Logistic Regression Model based on the following parameter;
 
 * Accuracy: This parameter can be defined as the degree to which the result generated by the model resembles the correct and predefined output
 The accuracy values after we varied the Hyper-Parameter values are as shown in the graph below:
 
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/LOG.png" alt="Image" width="300" height="300" />
+</p>
+
 ## Implementation using Artificial Neural Networks
 In order to increase efficiency and increase accuracy, we have implemented an Artificial Neural Network using Keras and Tensorflow Libraries. Here, we have used ‘rmsprop’ as the optimizer for Human Observed Dataset and ‘sgd’ optimizer for GSC Dataset. Also, the activation function used is ‘relu’ activation function.
 Here we are evaluating the performance of the Logistic Regression Model based on the following parameter;
 * Accuracy: This parameter can be defined as the degree to which the result generated by the model resembles the correct and predefined output
 Hence, the accuracy values after we varied the Hyper-Parameter values are as shown in the graph below:
+
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/NNHOC.png" alt="Image" width="600" height="300" />
+</p>
+
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/NNHOS.png" alt="Image" width="600" height="300" />
+</p>
+
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/NNGSCC.png" alt="Image" width="600" height="300" />
+</p>
+
+<p align="center">
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/NNGSCS.png" alt="Image" width="600" height="300" />
+</p>
 
 ## Conclusion
 
