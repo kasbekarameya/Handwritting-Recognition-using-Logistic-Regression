@@ -72,7 +72,7 @@ One of the easiest ways of learning Gradient Decent is to take an example of the
 Considering the example above we can now map the gradient descent algorithm into the following graph, where the two ends of the graph are the mountains and the value X is the lowest point of the valley. We can understand this better by looking at the diagram drawn by Welch Labs;
 
 <p align="center">
-    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/GD.png" alt="Image" width="800" height="600" />
+    <img src="https://github.com/kasbekarameya/Handwritting-Recognition-using-Logistic-Regression/blob/master/Images/GD.png" alt="Image" width="300" height="100" />
 </p>
 
 One of the most used variations of gradient descent algorithm is the Stochastic Gradient Descent Algorithm; also abbreviated as SGD. The term stochastic means that we compute a part of the problem representing the whole. Hence unlike the Batch Gradient Decent or Gradient Decent algorithm, in SGD we compute the gradient based on a single training sample as the stochastic approximation of the whole true gradient of the problem.
